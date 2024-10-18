@@ -1,0 +1,17 @@
+player1 player2 dealer end
+end
+player1 Hit player1
+player1 Stand player2
+player2 Hit player2
+player2 Stand dealer
+dealer Hit dealer
+dealer Stand end
+end Hit end
+end Stand end
+#
+Stand
+Hit
+Hit
+Stand
+Hit
+Stand
