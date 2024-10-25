@@ -15,7 +15,6 @@ parseDelta :: String -> [(String, String, String)]
 parseDelta s = map (toTriplas . words) transiciones
   where
     (_, transiciones, _) = parts s
-    -- transiciones = map words transiciones_lineas
     toTriplas [estado_act, sim, estado_sig] = (estado_act, sim, estado_sig)
 
 parseExec :: String -> [String]
@@ -23,8 +22,8 @@ parseExec s = exec
   where
     (_, _, exec) = parts s
 
-parseDFA :: String -> String -> DFA
-parseDFA estados aceptadores = DFA {qs = words estados, accept = words aceptadores}
+parseDFA :: String -> String -> [(String, String, String)] -> DFA
+parseDFA estados aceptadores trans = DFA {qs = words estados, accept = words aceptadores, transiciones = trans}
 
 example =
   "player1 player2 dealer end\n\

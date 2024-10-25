@@ -14,9 +14,10 @@ module Main where
     input <- getContents
 
     -- Define los parámetros del DFA
-    let dfa = parseDFA input
-        delta = deltaFromTriples $ parseDelta input
+    let (dfap,transiciones,_) = parts input
+        dfa = parseDFA (head dfap) (last dfap) (parseDelta transiciones)
+        --delta = deltaFromTriples $ parseDelta input
         exec = parseExec input
 
     -- Ejecuta el DFA e imprime cada uno de los elementos en una línea diferente.
-    mapM_ putStrLn $ evalDFA delta dfa exec
+    mapM_ putStrLn $ procesar dfa exec
