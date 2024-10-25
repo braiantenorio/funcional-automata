@@ -15,7 +15,7 @@ module Main where
 
     -- Define los parámetros del DFA
     let (dfap,transiciones,_) = parts input
-        dfa = parseDFA (head dfap) (last dfap) (parseDelta transiciones)
+        dfa = parseDFA (head dfap) (last dfap) (parseDelta input)
         --delta = deltaFromTriples $ parseDelta input
         exec = parseExec input
 
